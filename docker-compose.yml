@@ -1,0 +1,20 @@
+version: "3.2"
+
+services:
+    reviroio:
+        build: .
+        container_name: reviroio
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/usr/src/app
+        ports:
+            - "8000:8000"
+        depends_on:
+            - reviroio_db
+    reviroio_db:
+        image: postgres
+        container_name: reviroio_db
+        environment:
+        - POSTGRES_DB=postgres
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres

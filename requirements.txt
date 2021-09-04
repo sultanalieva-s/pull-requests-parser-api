@@ -1,0 +1,8 @@
+Django==3.2
+psycopg2-binary==2.8.5
+djangorestframework==3.11
+drf-yasg
+python-decouple==3
+requests==2.25.1
+beautifulsoup4==4.9.3
+lxml==4.6.3
