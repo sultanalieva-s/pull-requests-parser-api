@@ -1,4 +1,4 @@
-from django.contrib.sites import requests
+import requests
 from rest_framework import serializers
 
 from main.models import UserRequest, UserRequestResult, PullRequest
@@ -40,9 +40,10 @@ class UserRequestSerializer(serializers.ModelSerializer):
 
         # Check if the url for a git repo really exists. For instance, a user can enter something like:
         # 'https://github.com/sehmaschine/kdflaskflas', which is not a valid repo
-        try:
-            requests.get(github_link)
-        except:
+
+        r = requests.get(github_link)
+
+        if not r:
             raise serializers.ValidationError('Given link is not a valid repository link.'
                                               ' Please enter a link for an existing repository.')
 
