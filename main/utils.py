@@ -27,7 +27,6 @@ def get_pull_requests_data(pull_requests_html):
 
     pull_requests_titles = pull_req_nav.findAll('a', class_='Link--primary v-align-middle no-underline h4 js-navigation-open markdown-title')
     pull_requests_assignees_reviewers = pull_req_nav.findAll('div', class_='flex-shrink-0 col-3 pt-2 text-right pr-3 no-wrap d-flex hide-sm')
-    print(pull_requests_assignees_reviewers)
 
     pull_requests_data = []
     for pull_request_index in range(len(pull_requests_titles)):

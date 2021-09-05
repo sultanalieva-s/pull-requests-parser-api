@@ -1,5 +1,6 @@
 # Create your views here.
 import requests
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework.views import APIView
 
 from main.models import PullRequest
@@ -12,6 +13,7 @@ from main.utils import parse_pull_requests
 
 class PullRequestView(APIView):
 
+    @swagger_auto_schema(responses={200: PullRequestSerializer(many=True)}, request_body=UserRequestSerializer)
     def post(self, request):
         github_link = request.data
         user_request_serializer = UserRequestSerializer(data=github_link)
