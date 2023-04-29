@@ -1,4 +1,4 @@
-# reviroio-junior-python-assignment
+# Pull Requests Parser API
 
 ## Features
 
